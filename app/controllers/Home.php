@@ -7,10 +7,10 @@ class Home extends Controller{
     }
 
     public function index(){
-        $data = $this->model_home->getList();
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
+        // $data = $this->model_home->getList();
+        $this->data['sub_content']['title'] = 'Chi tiet san pham';
+        $this->data['content'] = 'home/index';
+        $this->render('layouts/client_layout', $this->data);
     }
 
 }
