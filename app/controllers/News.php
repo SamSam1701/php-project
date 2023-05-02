@@ -1,6 +1,6 @@
 <?php
 
-class News extends Controller{
+class News extends Controller {
     public function category($id){
         
     }

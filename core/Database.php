@@ -28,7 +28,7 @@ class Database{
         return false;
     }
 
-    function update($table, $data, $condition=''){
+    function update ($table, $data, $condition=''){
         if(!empty($data)){
             $updateStr='';
             foreach ($data as $key=>$value){
@@ -37,9 +37,9 @@ class Database{
             $updateStr = rtrim($updateStr, ',');
 
             if(!empty($condition)){
-                $sql = "Update $tale set $updateStr where $condition";
+                $sql = "Update $table set $updateStr where $condition";
             }else{
-                $sql = "Update $tale set $updateStr";
+                $sql = "Update $table set $updateStr";
             }
             $status = $this->query($sql);
             if($status){
@@ -52,17 +52,17 @@ class Database{
     function delete($table, $condition=''){
 
         if(!empty($condition)){
-            $sql = 'delete from '.$tale.' where '.$condition;
+            $sql = 'delete from '.$table.' where '.$condition;
         }else {
             $sql = 'delete from'.$table;
         }
         
-        $status = $this->query($sql);
+       $statement = $this->query($sql);
 
-        if(status){
-            return true;
-        }
-        return false;
+    if($statement->rowCount()){
+        return true;
+    }
+    return false;
     }
 
     function query($sql) {

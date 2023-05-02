@@ -43,24 +43,38 @@
         <td><?php echo $task['description']; ?></td>
         <td><?php echo $task['start_date']; ?></td>
         <td><?php echo $task['due_date']; ?></td>
-        <td><?php echo $task['finished_date']; ?></td>
-        <td><?php echo $task['status_task']; ?></td>
-        <td><?php echo $task['category_id']; ?></td>
+        <td>
+  <?php if ($task['finished_date'] === null || $task['finished_date']=== ''): ?>
+    incomplete
+  <?php else: ?>
+    <?php echo $task['finished_date']; ?>
+  <?php endif; ?>
+</td>
+        <td>
+  <?php if ($task['status'] == 0): ?>
+    TODO
+  <?php elseif ($task['status'] == 1): ?>
+    IN PROGRESS
+  <?php elseif ($task['status'] == 2): ?>
+    COMPLETE
+  <?php endif; ?>
+</td>
+        <td><?php echo $task['category_name']; ?></td>
         <td>
           <!-- Form xoá công việc -->
-          <form method="post" action="manageTask.php?action=deleteTask">
+          <form method="post" action="/ManageTask/deleteTask">
             <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
             <button 
             type="submit" 
-            name="delete_task" 
+            name="deleteTask" 
             onclick="return 
             confirm('Bạn có chắc chắn muốn xoá công việc này không?')"
             >
             Xoá
             </button>
           </form>
-          <a href="chi_tiet_cong_viec.php?id=<?php echo $task['id']; ?>">Xem</a>
-          <a href="chi_tiet_cong_viec.php?id=<?php echo $task['id']; ?>">Update</a>
+          <a href="/ManageTask/getDetail/<?php echo $task['id']; ?>">Xem</a>
+          <a href="/ManageTask/updateTask/<?php echo $task['id']; ?>">Update</a>
         </td>
       </tr>
     <?php endforeach; ?>

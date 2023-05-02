@@ -31,8 +31,6 @@ if (!empty($config['database'])){
     if(!empty($db_config)) {
         require_once 'core/Connection.php';
         require_once 'core/Database.php';
-        
-        // $db = new Database();
     }
 }
 require_once 'core/Model.php';
