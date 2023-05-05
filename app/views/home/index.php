@@ -1,6 +1,6 @@
 <div class="home-container">
     <div class="content">
-        TRANG CHỦ
+        HOME PAGE
     </div>
     <div class="create-task">
           <a class="link" href="/create/createTask">CREATE TASK</a>

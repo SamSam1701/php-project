@@ -26,6 +26,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 600;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .create-task {
@@ -71,4 +74,291 @@ body {
 
 .link:hover {
     background-color: #0069d9;
+}
+
+.create-page-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-page-create{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-create {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.label-create {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+}
+
+.date{
+  display: flex;
+}
+
+.date-start{
+  margin-right: 40px;
+}
+
+#cate{
+  margin-top: 16px;
+}
+
+.input-text{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.input-submit {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-submit:hover {
+  background-color: #3e8e41;
+}
+
+.btn-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn{
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #3e8e41;
+  float: right;
+}
+
+/* manage page */
+
+.search-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#search-form, #filter-form {
+  display: flex;
+  align-items: center;
+}
+
+#search-form input[type="text"], #filter-form select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#search-form button[type="submit"], #filter-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#search-form button[type="submit"]:hover, #filter-form button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: #eee;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+td button {
+  background-color: red;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+td button:hover {
+  background-color: #e60000;
+}
+
+td a {
+  text-decoration: none;
+  margin-right: 10px;
+  color: #4caf50;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  display: inline-block;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.pagination ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  color: #333;
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination li a:hover:not(.active) {
+  background-color: #f2f2f2;
+}
+
+.delete-tasks{
+  float: right;
+  padding: 8px;
+  margin: 20px 10px;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 4px;
+}
+
+.delete-tasks:hover{
+  cursor: pointer;
+  background-color: #ec1111;
+}
+
+/* Task detail */
+.task-title {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.task-details {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.task-details td,
+.task-details th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.task-details tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.task-details th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* update-page */
+
+.update-page-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-task-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.update-task-form input[type="text"],
+.update-task-form input[type="date"],
+.update-task-form select,
+.update-task-form textarea {
+  width: 500px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.update-task-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.update-task-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.detail-task-back-btn{
+  margin: 20px;
+}
+
+.manage-task-button-back{
+  margin: 26px;
 }

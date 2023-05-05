@@ -84,4 +84,76 @@ class ManageTask extends Controller {
             echo 'Cập nhật thất bại!';
         }
     }
+
+    public function search(){
+        $keyword = isset($_GET['search']) ? $_GET['search'] : ''; // lấy từ khóa tìm kiếm từ URL
+        $per_page = 5; // số bản ghi hiển thị trên mỗi trang
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1; // lấy số trang hiện tại từ URL
+        $total_records = $this->model_task->getTotalSearchRecords($keyword); // lấy tổng số bản ghi dựa trên từ khóa tìm kiếm
+        $total_pages = ceil($total_records / $per_page); // tổng số trang
+    
+        // lấy dữ liệu của trang hiện tại dựa trên từ khóa tìm kiếm
+        $data = $this->model_task->search($keyword, $current_page, $per_page);
+    
+        // truyền dữ liệu vào view
+        $this->data['sub_content']['task_list'] = $data;
+        $this->data['sub_content']['page_title'] = 'Kết quả tìm kiếm';
+        $this->data['content'] = 'manageTask/manage_task';
+    
+        // truyền các tham số liên quan đến phân trang vào view
+        $this->data['sub_content']['current_page'] = $current_page;
+        $this->data['sub_content']['total_pages'] = $total_pages;
+        $this->render('layouts/client_layout', $this->data);
+    }
+
+
+    public function filter(){
+        $status = $_GET['filter_status'];
+        $keyword = '';
+        if ($status === 'COMPLETE')
+        {
+            $keyword = 2;
+        }else if ($status === 'TODO')
+        {
+            $keyword = 0;
+        }else if ($status === 'IN PROGRESS')
+        {
+            $keyword = 1;
+        } else {
+            $keyword ='';
+        }
+        $per_page = 5; // số bản ghi hiển thị trên mỗi trang
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1; // lấy số trang hiện tại từ URL
+        $total_records = $this->model_task->getTotalFilterRecords($keyword); // lấy tổng số bản ghi dựa trên từ khóa tìm kiếm
+        $total_pages = ceil($total_records / $per_page); // tổng số trang
+        $filtered_data = $this->model_task->filterStatusTask($keyword,$current_page, $per_page);
+        $this->data['sub_content']['task_list'] = $filtered_data;
+        $this->data['sub_content']['page_title'] = 'Kết quả tìm kiếm';
+        $this->data['content'] = 'manageTask/manage_task';
+    
+        // truyền các tham số liên quan đến phân trang vào view
+        $this->data['sub_content']['current_page'] = $current_page;
+        $this->data['sub_content']['total_pages'] = $total_pages;
+        $this->render('layouts/client_layout', $this->data);
+    }
+
+    public function deleteTasks()
+    {
+    if (isset($_POST['deleteTasks'])) {
+        
+        // get the IDs of the selected tasks
+        $taskIds = $_POST['task_ids'];
+        
+        // loop through the task IDs and delete the tasks
+        foreach ($taskIds as $taskId) {
+            // delete the task with the given ID from the database
+            $task_model->deleteTask($taskId);
+        }
+        
+        // redirect the user to the task list page
+        header("Location: /task-list.php, Content-Type: application/json");
+        exit();
+    }
+    }
+
 }
