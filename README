@@ -1,0 +1,22 @@
+-- Họ và tên: Nguyễn Phước Sâm
+-- MSSV: 19120636
+-- Các chức năng đã làm được
+
++ Tạo dao diện trang chủ liên kết tới các trang con
++ Tạo trang thêm mới công việc validate khi user submit mà không nhập dữ liệu
++ Tạo trang xem list task trong đó có:
+	Có thể tìm kiếm task thông qua name hoặc description của task
+	Có thể filter theo status của task đó
+	Xem detail task ở một trang riêng
+	Xóa task 
+	Hỗ trợ delete multiple task
+	Link tới trang update task
+	Hỗ trợ pagination khi trang có nhiều task
++ Tạo trang Update task
++ Tạo trang detail Task
+
+* Lập trình theo kiến trúc MVC
+* Có sử dụng css để làm giao diện trang web
+* Có sử dụng javascript, jquery, AJAX trong chức năng tìm kiếm, chức năng filter
+* hỗ trợ pagination
+	 

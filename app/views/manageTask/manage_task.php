@@ -162,17 +162,16 @@ $('#filter-form').submit(function(event) {
 function deleteTasks() {
     // lấy danh sách checkbox được chọn
     const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    // console.log(checkboxes);
     const taskIds = Array.from(checkboxes).map(cb => cb.value);
-    console.log(taskIds);
     // gửi yêu cầu xóa đến server
     fetch('/ManageTask/deleteTasks', {
-      method: 'POST',
-      body: JSON.stringify({ taskIds }),
-      headers: { 'Content-Type': 'application/json' }
-    })
+  method: 'POST',
+  body: JSON.stringify({ taskIds }),
+  headers: { 'Content-Type': 'application/json' }
+})
     .then(response => response.json())
     .then(data => {
+      console.log(data.taskIds);
       if (data.success) {
         // xóa các bản ghi đã chọn khỏi bảng
         checkboxes.forEach(cb => cb.parentNode.parentNode.remove());

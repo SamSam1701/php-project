@@ -139,21 +139,23 @@ class ManageTask extends Controller {
 
     public function deleteTasks()
     {
-    if (isset($_POST['deleteTasks'])) {
+        if (isset($_POST['taskIds'])) { // Kiểm tra trường dữ liệu 'taskIds'
         
-        // get the IDs of the selected tasks
-        $taskIds = $_POST['task_ids'];
-        
-        // loop through the task IDs and delete the tasks
-        foreach ($taskIds as $taskId) {
-            // delete the task with the given ID from the database
-            $task_model->deleteTask($taskId);
+            // get the IDs of the selected tasks
+            $taskIds = $_POST['taskIds'];
+            
+            // loop through the task IDs and delete the tasks
+            foreach ($taskIds as $taskId) {
+                // delete the task with the given ID from the database
+                $task_model = $this->model('TaskModel');
+                $task_model->deleteTask($taskId);
+            }
+            
+            // trả về kết quả thành công
+            header('Content-Type: application/json');
+            echo json_encode(['success' => true]);
+            exit();
         }
-        
-        // redirect the user to the task list page
-        header("Location: /task-list.php, Content-Type: application/json");
-        exit();
-    }
     }
 
 }
